@@ -12,7 +12,7 @@ describe('SpaceClock', function(){
     let bday = new SpaceClock(1976, 12, 17);
     let outcome = bday.makeDate();
     let result = outcome.toString();
-  expect(outcome).toEqual("Fri Dec 17 1976 00:00:00 GMT-0800 (Pacific Standard Time)");
+  expect(result).toEqual("Fri Dec 17 1976 00:00:00 GMT-0800 (Pacific Standard Time)");
   })
 
   it('should take two dates and return the difecence in seconds', function(){
