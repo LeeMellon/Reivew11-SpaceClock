@@ -43,5 +43,18 @@ export class SpaceClock{
   return answer;
 }
 
+function tester(coarseSecs){
+  let years = Math.floor(coarseSecs/31536000);
+  let weeks = Math.floor((coarseSecs % 31536000) / 604800);
+  let days = Math.floor(((coarseSecs % 31536000) % 604800) / 86400);
+  let hours = Math.floor((((coarseSecs % 31536000) % 604800) % 86400) / 3600);
+  let mins = Math.floor(((((coarseSecs % 31536000) % 604800) % 86400) % 3600)/60);
+  let secs = Math.floor(((((coarseSecs % 31536000) % 604800) % 86400) % 3600)%60);
+  let answer = `years ${years}, weeks ${weeks}, days ${days}, hours ${hours} minuets ${mins} seconds ${secs}`;
+
+  return answer;
+}
+
+
 
 }
