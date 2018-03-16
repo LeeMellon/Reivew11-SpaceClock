@@ -28,32 +28,48 @@ export class SpaceClock{
     return roughDiff;
   }
 
-  closeDiff(clock2){
+  closeDiff(olderClock){
   let a = this.makeDate();
-  let b = clock2.makeDate();
+  let b = olderClock.makeDate();
   let coarseSecs = (a - b)/1000;
-  let years = Math.floor(coarseSecs/31536000);
-  let weeks = Math.floor((coarseSecs % 31536000) / 640800);
-  let days = Math.floor(((coarseSecs % 31536000) % 640800) / 86400);
-  let hours = Math.floor((((coarseSecs % 31536000) % 640800) % 86400) / 3600);
-  let mins = Math.floor(((((coarseSecs % 31536000) % 640800) % 86400) % 3600)/60);
-  let secs = Math.floor(((((coarseSecs % 31536000) % 640800) % 86400) % 3600)%60);
-  let answer = `years ${years}, weeks ${weeks}, days ${days}, hours ${hours} minuets ${mins} seconds ${secs}`;
-
-  return answer;
-}
-
-function tester(coarseSecs){
   let years = Math.floor(coarseSecs/31536000);
   let weeks = Math.floor((coarseSecs % 31536000) / 604800);
   let days = Math.floor(((coarseSecs % 31536000) % 604800) / 86400);
   let hours = Math.floor((((coarseSecs % 31536000) % 604800) % 86400) / 3600);
   let mins = Math.floor(((((coarseSecs % 31536000) % 604800) % 86400) % 3600)/60);
   let secs = Math.floor(((((coarseSecs % 31536000) % 604800) % 86400) % 3600)%60);
-  let answer = `years ${years}, weeks ${weeks}, days ${days}, hours ${hours} minuets ${mins} seconds ${secs}`;
+  let answer = `${years} years ,${weeks}  weeks, ${days} days, ${hours} hours, ${mins} minuets, ${secs} seconds.`;
 
   return answer;
 }
+
+planetDiff(olderClock, planet){
+let a = this.makeDate();
+let b = olderClock.makeDate();
+let x = 0;
+if (planet == "Merc"){
+  x = .24;
+}else if (planet =="Ven"){
+  x = .62;
+} else if (planet == "Mar"){
+  x = 1.88
+} else if (planet == "Jup"){
+  x = 11.86
+}
+let coarseSecs = (a - b)/1000;
+let years = Math.floor(coarseSecs/(31536000 *x));
+let weeks = Math.floor((coarseSecs % (31536000 * x)) / (604800 * x));
+let days = Math.floor(((coarseSecs % (31536000 * x)) % (604800 * x)) / (86400 * x));
+let hours = Math.floor((((coarseSecs % (31536000 * x)) % (604800 * x)) % (86400 * x)) / (3600 * x));
+let mins = Math.floor(((((coarseSecs % (31536000 * x)) % (604800 * x)) % (86400 * x)) % (3600 * x))/(60 * x));
+let secs = Math.floor(((((coarseSecs % (31536000 * x)) % (604800 * x)) % (86400 * x)) % (3600 * x))%(60 * x));
+let answer = `${years} years ,${weeks}  weeks, ${days} days, ${hours} hours, ${mins} minuets, ${secs} seconds.`;
+
+return answer;
+}
+
+
+
 
 
 

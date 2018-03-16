@@ -27,8 +27,16 @@ describe('SpaceClock', function(){
     expect(result).toEqual(41);
   })
 
-  it('should take a date from the past and return the difference in extra terrestrial years.', function(){
-    ///
+  it('should two dates and return an exact difference in time.', function(){
+    let newer = new SpaceClock(2018, 3, 16, 15, 26, 30, 0)
+    let result = newer.closeDiff(bday);
+    expect(result).toEqual("41 years ,14  weeks, 2 days, 1 hours, 30 minuets, 0 seconds.");
+  })
+
+  it('should take a date from the past and return the difference in extra terrestrial (Mercury) years.', function(){
+    let newer = new SpaceClock(2018, 3, 16, 15, 26, 30, 0)
+    let result = newer.planetDiff(bday, "Merc")
+    expect(result).toEqual("171 years ,51  weeks, 2 days, 19 hours, 50 minuets, 0 seconds.");
   })
 
   it('should take basic demographic info and return a loose life expectancy on another planet.', function(){
