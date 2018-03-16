@@ -9,7 +9,16 @@ export class SpaceClock{
     this.mili = mili;
   }
 
+  makeDate(){
+    let newDate = new Date(this.year, this.month, this.day, this.minuet, this.second, this.mili)
 
+    return newDate;
+  }
 
+  roughYears(){
+    let now = new Date();
+    let rYears = Math.floor((now - this.makeDate())/31536000000);
+    return rYears;
+  }
 
 }
