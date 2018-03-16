@@ -1,30 +1,57 @@
-# _{Application Name}_
+# _{Space Clock V 0.5}_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _{An App that calculates time and lifespan on other planets}, {3/16/2018}_
 
-#### By _**{List of contributors}**_
+#### By _**{Ian Goodrich}**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_{Space Clock will take a span of time and calculate how many solar cycles ("years") it constitutes on other planets.}_
 
 ## Setup/Installation Requirements
 
+* _As this app is mainly designed to demonstrate testing with Karma and Jasmine the installation instructions are designed to that end._
 
-* _Clone this GitHub repository_
+* _Navigate to or create a parent directory for your copy of Space Clock._
 
-```
-git clone https://github.com/XXXXXXXXX/XXXXXXXX.git
-```
+* _Clone this GitHub repository by typing:_
 
-* _Setup Webpack and other dependencies_
+  git clone https://github.com/LeeMellon/Reivew11-SpaceClock.git
 
 
-* _Run the program_
+* _Space Clock is built with Node Webpack Jasmine and Karma. Most of the required dependencies are included in the package.json file. However a few need to be installed after downloading from GitHub. After you have cloned the repository to you computer_
 
-* _View program on web browser at port localhost:5000/_
+* _Within the SpaceClock directory type 'npm init -y'. Once this process is complete type 'npm install'_
 
-* _Follow the prompts._
+* _Next type 'npm install jasmine-core@2.99.0 --save-dev'_
+
+* _Next type 'npm install jasmine@3.1.0 --save-dev'_
+
+* _Next type './node_modules/.bin/jasmine init'_
+
+* _Next type 'npm install -g karma -cli'_
+
+* _Next type 'npm run build' to make sure everything is installed correctly._
+
+* _You can type 'npm test' to run the testing routine._
+
+* _For versions later than 0.5, or if you add your own front end content type 'npm run start' to launch the app_
+
+## Specs
+
+* _Take in age in years and return the number of seconds this amount of time constitutes._
+    input: 20
+    output: 630720000
+* _Take in two dates and return the time difference in seconds_
+    input: (3/9/2018, 3/16/2018)
+    output: 604800
+* _Take in an amount of time in Earth years and convert it to "years" on other planets._
+    input: (1, Mercury)
+    output: 4.17
+* __
+* __
+* __
+
 
 ## Known Bugs
 
