@@ -35,27 +35,61 @@ _{Space Clock will take a span of time and calculate how many solar cycles ("yea
 
 * _You can type 'npm test' to run the testing routine._
 
+* _Inside the clock.js file, on line 105 change
+    let coarseSecs = this.fineLifeSpanLeftFromBdayTEST()
+ to let coarseSecs = this.fineLifeSpanLeftFromBday()
+    This is an artifact that was necessary for testing purposes. Without the TEST, the proper method is called and gives a much more accurate to the current second result._
+
 * _For versions later than 0.5, or if you add your own front end content type 'npm run start' to launch the app_
 
 ## Specs
 
-* _Take in age in years and return the number of seconds this amount of time constitutes._
-    input: 20
-    output: 630720000
-* _Take in two dates and return the time difference in seconds_
-    input: (3/9/2018, 3/16/2018)
-    output: 604800
-* _Take in an amount of time in Earth years and convert it to "years" on other planets._
-    input: (1, Mercury)
-    output: 4.17
-* __
-* __
-* __
+* _Take in a set of numbers and return a SpaceClock formatted to create Date objects_
+    input: let test = new SpaceClock(1976, 12, 17);
+    output: test.month = 11;
+
+* _Take a SpaceClock and return a rounded year from now._
+    input: bday = new SpaceClock(1976, 12, 17);
+    input: let outcome = bday.roughYearsFromNow();
+    output: 41
+
+* _Take a SpaceClock object and return a JS Date object_
+    input: bday = new SpaceClock(1976, 12, 17);
+    input: let outcome = bday.makeDate();
+    input: let result = outcome.toString();
+    output: "Fri Dec 17 1976 00:00:00 GMT-0800 (Pacific Standard Time)"
+
+* _Take in two dates and return the time difference in rounded years_
+    input: let bday = new SpaceClock(1976, 12, 17);
+    input: let now = new SpaceClock(2018, 3, 17);
+    input: let result = bday.roughYearsDiff(now);
+    output: 41
+
+* _Take in a 2 SpaceClock instances and return the differecn in time in Years, Weeks, Days, Hours, Minuets, and Seconds_
+    input: let bday = new SpaceClock(1976, 12, 17);
+    input: let newer = new SpaceClock(2018, 3, 16, 15, 26, 30, 0);
+    input: let result = newer.closeDiff(bday);
+    output: "41 years ,14  weeks, 2 days, 1 hours, 30 minuets, 0 seconds."
 
 
+* _Take a date from the past and and convert it to "years" on other planets._
+    input: let bday = new SpaceClock(1976, 12, 17);
+    input: let newer = new SpaceClock(2018, 3, 16, 15, 26, 30, 0);
+    input: let result = newer.planetDiff(bday, "Merc");
+    output: "171 years ,51  weeks, 2 days, 19 hours, 50 minuets, 0 seconds."
+
+* _Take a SpaceClock instance of the users Birthday and return an estimated ammount of time left based on an average 79 year lifespan._
+    input: let rando = new SpaceClock(1950, 1, 1, 0, 0, 0, 0);
+    input: let result = rando.coarseLifeSpanLeftFromBday();
+    output: 10.87934576543.
+
+* _SpaceClock instance of the users Birthday and a planet and return the expected life span left in that planets solar cycle._
+      input: let rando = new SpaceClock(1950, 1, 1, 0, 0, 0, 0);
+      input: let result = rando.planetEcpectencyFromBday("Merc");
+      output: "45 years ,1  weeks, 1 days, 12 hours, 10 minuets, 0 seconds.".
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_{No known bugs. Currently only works with Mars ("Mar"), Venus ("Ven"), Mercury ("Merc") and Jupiter ("Jup") other planets solar cycles may be added in the future.}_
 
 ## Support and contact details
 
