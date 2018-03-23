@@ -21,19 +21,15 @@ _{Space Clock will take a span of time and calculate how many solar cycles ("yea
 
 * _Space Clock is built with Node Webpack Jasmine and Karma. Most of the required dependencies are included in the package.json file. However a few need to be installed after downloading from GitHub. After you have cloned the repository to you computer_
 
-* _Within the SpaceClock directory type 'npm init -y'. Once this process is complete type 'npm install'_
-
-* _Next type 'npm install jasmine-core@2.99.0 --save-dev'_
-
-* _Next type 'npm install jasmine@3.1.0 --save-dev'_
-
-* _Next type './node_modules/.bin/jasmine init'_
+* _Setup Webpack and other dependencies by typing 'npm install' into the console_
 
 * _Next type 'npm install -g karma -cli'_
 
 * _Next type 'npm run build' to make sure everything is installed correctly._
 
 * _You can type 'npm test' to run the testing routine._
+
+* _Run the program by typing 'npm run start_
 
 * _Inside the clock.js file, on line 105 change
     let coarseSecs = this.fineLifeSpanLeftFromBdayTEST()

@@ -23,7 +23,7 @@ describe('SpaceClock', function(){
   it('should create a new JS date object from the SpaceClock object', function(){
     let outcome = bday.makeDate();
     let result = outcome.toString();
-  expect(result).toEqual("Fri Dec 17 1976 00:00:00 GMT-0800 (Pacific Standard Time)");
+  expect(result).toEqual("Fri Dec 17 1976 00:00:00 GMT-0800 (PST)");
   })
 
   it('should take two dates and return the difecence in rounded years', function(){
